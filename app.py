@@ -7,7 +7,7 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
 MAX_LEN = 15
-MODEL_URL = "https://huggingface.co/M1deey/translator_/resolve/main/translator_en_es.h5"
+MODEL_URL = "https://huggingface.co/M1deey/translator_/resolve/main/translator_en_es.keras"
 
 st.set_page_config(page_title="Translator Version 01", page_icon="🌐", layout="centered")
 
@@ -70,8 +70,8 @@ div.stButton > button:hover {
 
 @st.cache_resource
 def load_assets():
-    urllib.request.urlretrieve(MODEL_URL, "translator_en_es.h5")
-    model = load_model("translator_en_es.h5")
+    urllib.request.urlretrieve(MODEL_URL, "translator_en_es.keras")
+    model = load_model("translator_en_es.keras")
     with open("eng_tokenizer.pkl", "rb") as f:
         eng_tokenizer = pickle.load(f)
     with open("spa_tokenizer.pkl", "rb") as f:
